@@ -1,7 +1,7 @@
 [submodule "modbusSlave"]
 	path = modbusSlave
-	url = git://github.com/fcomir-io/modbusSlave.git
+	url = git@github.com:fcomir-io/modbusSlave.git
 	
 [submodule "middleware"]
 	path = middleware
-	url = git://github.com/fcomir-io/python-postgreSQL-middleware.git
+	url = git@github.com:fcomir-io/python-postgreSQL-middleware.git
