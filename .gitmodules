@@ -1,6 +1,6 @@
 [submodule "modbusSlave"]
 	path = modbusSlave
-	url = git@github.com:fcomir-io/modbusSlave.git
+	url = https://github.com/fcomir-io/modbusSlave.git
 	
 [submodule "middleware"]
 	path = middleware
