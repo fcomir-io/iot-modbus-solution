@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.test-bench-api {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: cornsilk;
+}
+
+.all-testbenches {
+  background-color: aqua;
+  padding: 1rem;
+}
+
+.add-testbench {
+  background-color: burlywood;
+  padding: 1rem;
+}
+
+.testbench-selector {
+  background-color: cadetblue;
+  padding: 1rem;
+}
+
+.update-testbench {
+  background-color: burlywood;
+  padding: 1rem;
+}
+
+.delete-testbench {
+  background-color: cadetblue;
+  padding: 1rem;
+}
+
+.empty-testbench-table {
+  background-color: red;
+  padding: 1rem;
+}

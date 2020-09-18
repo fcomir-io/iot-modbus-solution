@@ -1,0 +1,11 @@
+// Here you can add other styles
+
+.tb-list-table-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .tb-add-button {
+        margin: auto 0;
+    }
+}

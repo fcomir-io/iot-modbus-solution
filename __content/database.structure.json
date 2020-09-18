@@ -1,0 +1,47 @@
+{
+  "tables": [
+    {
+      "name": "test_benches",
+      "sql_command": "CREATE TABLE test_benches (test_bench_id SERIAL PRIMARY KEY NOT NULL, tb_description VARCHAR(255) NOT NULL, tb_location VARCHAR(100))",
+      "columns": ["test_bench_id", "tb_description", "tb_location"]
+    },
+    {
+      "name": "devices",
+      "sql_command": "CREATE TABLE devices (device_id SERIAL PRIMARY KEY, device_host CIDR NOT NULL, device_description VARCHAR(255))",
+      "columns": ["device_id", "device_host", "device_description", "test_bench_id"]
+    },
+    {
+      "name": "testbench_device",
+      "sql_command": "CREATE TABLE testbench_device (associated_test_bench_id int REFERENCES test_benches (test_bench_id) ON UPDATE CASCADE, associated_device_id int REFERENCES devices (device_id) ON UPDATE CASCADE, CONSTRAINT testbench_device_pkey PRIMARY KEY (test_bench_id, device_id))",
+      "columns": [
+        "test_bench_id",
+        "device_id"
+      ]
+    },
+    {
+      "name": "signals",
+      "sql_command": "CREATE TABLE signals (signal_id SERIAL PRIMARY KEY, register_address INTEGER NOT NULL, signal_name VARCHAR(25) NOT NULL, signal_type VARCHAR(10) NOT NULL, signal_description VARCHAR(255) )",
+      "columns": [
+        "signal_id",
+        "register_address",
+        "signal_name",
+        "signaltype",
+        "signal_description",
+        "device_id"
+      ]
+    },
+    {
+      "name": "device_signals",
+      "sql_command": "CREATE TABLE device_signals (associated_device_id int REFERENCES devices (device_id) ON UPDATE CASCADE ON DELETE CASCADE, associated_signal_id int REFERENCES signals (signal_id) ON UPDATE CASCADE, CONSTRAINT device_signals_pkey PRIMARY KEY (device_id, signal_id))",
+      "columns": [
+        "associated_device_id",
+        "associated_signal_id"
+      ]
+    },
+    {
+      "name": "data",
+      "sql_command": "CREATE TABLE data (entry_id SERIAL PRIMARY KEY, timestamp TIMESTAMP NOT NULL, data_value REAL NOT NULL, device_id INTEGER NOT NULL, FOREIGN KEY (device_id) REFERENCES devices (device_id) ON UPDATE CASCADE ON DELETE CASCADE, signal_id INTEGER NOT NULL, FOREIGN KEY (signal_id) REFERENCES signals (signal_id) ON UPDATE CASCADE ON DELETE CASCADE )",
+      "columns": ["entry_id", "timestamp", "data_value", "device_id", "signal_id"]
+    }
+  ]
+}
