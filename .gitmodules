@@ -4,4 +4,4 @@
 	
 [submodule "middleware"]
 	path = middleware
-	url = git@github.com:fcomir-io/python-postgreSQL-middleware.git
+	url = https://github.com/fcomir-io/python-postgreSQL-middleware.git
